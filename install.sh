@@ -11,26 +11,26 @@ sudo apt-get install -y libxcb-render-util0-dev libxcb-shape0-dev libxcb-xfixes0
 
 # Create font directory and install fonts
 mkdir -p ~/.local/share/fonts/
-wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/Iosevka.zip
-wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/RobotoMono.zip
+sudo wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/Iosevka.zip
+sudo wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/RobotoMono.zip
 unzip Iosevka.zip -d ~/.local/share/fonts/
 unzip RobotoMono.zip -d ~/.local/share/fonts/
 fc-cache -fv
 
 # Install Alacritty
-wget https://github.com/barnumbirr/alacritty-debian/releases/download/v0.10.0-rc4-1/alacritty_0.10.0-rc4-1_amd64_bullseye.deb
+sudo wget https://github.com/barnumbirr/alacritty-debian/releases/download/v0.10.0-rc4-1/alacritty_0.10.0-rc4-1_amd64_bullseye.deb
 sudo dpkg -i alacritty_0.10.0-rc4-1_amd64_bullseye.deb
 sudo apt install -f
 
 # Install i3-gaps
-git clone https://www.github.com/Airblader/i3 i3-gaps
+sudo git clone https://www.github.com/Airblader/i3 i3-gaps
 cd i3-gaps && mkdir -p build && cd build && meson ..
-ninja
+sudo ninja
 sudo ninja install
 cd ../..
 
 # Install pywal
-pip3 install pywal
+sudo pip3 install pywal
 
 # Create necessary directories for configuration
 mkdir -p ~/.config/i3
@@ -51,7 +51,7 @@ echo "#!/bin/sh" > ~/.wallpaper/wallpaper-script.sh
 echo "feh --no-fehbg --bg-scale ~/.wallpaper/23.jpg" >> ~/.wallpaper/wallpaper-script.sh
 
 # Make the wallpaper script executable
-chmod +x ~/.wallpaper/wallpaper-script.sh
+sudo chmod +x ~/.wallpaper/wallpaper-script.sh
 
 # Add wallpaper script to startup by creating or modifying ~/.xprofile
 echo '#!/bin/sh' > ~/.xprofile
@@ -61,4 +61,4 @@ echo "Done! Grab some wallpaper and run pywal -i filename to set your color sche
 echo "After reboot: Select i3 on login, run lxappearance and select arc-dark"
 
 # Install Oh My Zsh
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+sudo sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
