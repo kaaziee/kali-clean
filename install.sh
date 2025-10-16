@@ -24,7 +24,7 @@ sudo apt install -f
 
 # Install i3-gaps
 sudo git clone https://www.github.com/Airblader/i3 i3-gaps
-cd i3-gaps && mkdir -p build && cd build && meson ..
+cd i3-gaps && sudo mkdir -p build && cd build && sudo meson ..
 sudo ninja
 sudo ninja install
 cd ../..
