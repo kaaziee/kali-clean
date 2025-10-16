@@ -30,7 +30,10 @@ sudo ninja install
 cd ../..
 
 # Install pywal
-sudo pip3 install pywal
+python3 -m venv ~/.local/pywal-venv  
+source ~/.local/pywal-venv/bin/activate 
+pip install pywal 
+deactivate
 
 # Create necessary directories for configuration
 mkdir -p ~/.config/i3
